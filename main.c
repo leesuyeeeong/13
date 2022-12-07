@@ -7,22 +7,10 @@ struct Book {
 };
 
 void main(void) {
-	struct Book *p;
+	int i;
+	struct Book **bookshelf;
 
-	p = (struct Book*)malloc(2 * sizeof 
-	(struct Book));
-	
-	if (p == NULL) {
-		printf("메모리 할당 오류\n");
-		return;
-}
-
-p->number = 1;
-strcpy(p->title, "C Programming");
-
-(p+1)->number = 2;
-strcpy((p+1)->title, "Electronics");
-
-free(p);
-return;
+	bookshelf = (struct Book**)malloc(3 * sizeof (struct Book*));
+	for (i=0;i<3;i++)
+		bookshelf[i] = (struct Book*)malloc(10 * sizeof (struct Book));
 }
